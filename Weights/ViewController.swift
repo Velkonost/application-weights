@@ -17,6 +17,8 @@ class ViewController: UIViewController {
 	
 	var isPlaySound = true
 	
+	let circleView = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
+	
 	var isUpdate = true {
 		didSet {
 			if isUpdate == false {
@@ -32,11 +34,22 @@ class ViewController: UIViewController {
 		
 		forceLabel.text = "0% force"
 		grammLabel.text = "0 gram"
+		
+		circleView.layer.cornerRadius = 40
+		circleView.alpha = 0.6
+		circleView.backgroundColor = UIColor.red
 	}
 	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
+	}
+	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		if let touch = touches.first {
+			circleView.center = touch.location(in: view)
+			view.addSubview(circleView)
+		}
 	}
 	
 	
@@ -63,6 +76,7 @@ class ViewController: UIViewController {
 						if isUpdate {
 							forceLabel.text = "\(Int(force))% force"
 							grammLabel.text = "\(roundGrams) gram"
+							circleView.transform = CGAffineTransform.init(scaleX: CGFloat(1 + (grams / 5) / 20), y: CGFloat(1 + (grams / 5) / 20))
 							isUpdate = false
 						}
 					}
@@ -74,6 +88,9 @@ class ViewController: UIViewController {
 	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
 		forceLabel.text = "0% force"
 		grammLabel.text = "0 gram"
+		
+		circleView.removeFromSuperview()
+		circleView.transform = .identity
 	}
 	
 	
