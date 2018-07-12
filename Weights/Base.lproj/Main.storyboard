@@ -24,9 +24,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Положите предмет для взвешивания в центр круга" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9an-Vh-H5d">
-                                <rect key="frame" x="54" y="10" width="266" height="179"/>
+                                <rect key="frame" x="54.5" y="10" width="266" height="120"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="179" id="Iuf-zr-bI5"/>
+                                    <constraint firstAttribute="height" constant="120" id="ibh-GX-AiZ"/>
                                     <constraint firstAttribute="width" constant="266" id="vUl-oD-VCe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="21"/>
@@ -34,22 +34,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% force" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Gz-sY-5bC">
-                                <rect key="frame" x="160" y="560" width="55.5" height="21"/>
+                                <rect key="frame" x="160" y="572" width="55.5" height="21"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7At-ER-yaF">
-                                <rect key="frame" x="168" y="608" width="38.5" height="21"/>
+                                <rect key="frame" x="168" y="620" width="38.5" height="21"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3x-OG-KBS" customClass="ScaleView" customModule="Weights" customModuleProvider="target">
-                                <rect key="frame" x="22" y="168" width="330" height="351"/>
+                                <rect key="frame" x="-0.5" y="156" width="375" height="375"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="330" id="WlY-61-08u"/>
+                                    <constraint firstAttribute="height" constant="375" id="FM9-ul-3lc"/>
+                                    <constraint firstAttribute="width" constant="375" id="WlY-61-08u"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -58,15 +59,20 @@
                             <constraint firstItem="7Gz-sY-5bC" firstAttribute="top" secondItem="W3x-OG-KBS" secondAttribute="bottom" constant="41" id="CJo-c0-ahz"/>
                             <constraint firstItem="W3x-OG-KBS" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="FNh-jH-4H1"/>
                             <constraint firstItem="7Gz-sY-5bC" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="J7k-Tb-pjy"/>
+                            <constraint firstItem="W3x-OG-KBS" firstAttribute="top" secondItem="9an-Vh-H5d" secondAttribute="bottom" constant="26" id="JHf-zf-EyQ"/>
                             <constraint firstItem="9an-Vh-H5d" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="JxX-Xu-YqY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="9an-Vh-H5d" secondAttribute="top" constant="10" id="M3S-4r-2Ii"/>
                             <constraint firstItem="W3x-OG-KBS" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pkB-Ms-jEv"/>
-                            <constraint firstItem="W3x-OG-KBS" firstAttribute="top" secondItem="9an-Vh-H5d" secondAttribute="bottom" constant="-21" id="vjz-2Z-JuD"/>
                             <constraint firstItem="7At-ER-yaF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wSF-Oi-VXF"/>
                             <constraint firstItem="7At-ER-yaF" firstAttribute="top" secondItem="7Gz-sY-5bC" secondAttribute="bottom" constant="27" id="xLK-zA-sw6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="forceLabel" destination="7Gz-sY-5bC" id="fke-RY-xfr"/>
+                        <outlet property="grammLabel" destination="7At-ER-yaF" id="lG2-zK-n97"/>
+                        <outlet property="scaleView" destination="W3x-OG-KBS" id="wel-EQ-2k3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
