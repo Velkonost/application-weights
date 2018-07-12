@@ -17,6 +17,16 @@ class ViewController: UIViewController {
 	
 	var isPlaySound = true
 	
+	var isUpdate = true {
+		didSet {
+			if isUpdate == false {
+				DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+					self.isUpdate = oldValue
+				}
+			}
+		}
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -50,8 +60,11 @@ class ViewController: UIViewController {
 						
 						isPlaySound = true
 						
-						forceLabel.text = "\(Int(force))% force"
-						grammLabel.text = "\(roundGrams) gram"
+						if isUpdate {
+							forceLabel.text = "\(Int(force))% force"
+							grammLabel.text = "\(roundGrams) gram"
+							isUpdate = false
+						}
 					}
 				}
 			}
@@ -62,7 +75,7 @@ class ViewController: UIViewController {
 		forceLabel.text = "0% force"
 		grammLabel.text = "0 gram"
 	}
-		
-		
+	
+	
 }
 
