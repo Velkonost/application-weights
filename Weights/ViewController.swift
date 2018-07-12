@@ -37,10 +37,18 @@ class ViewController: UIViewController {
 					if touch.force >= touch.maximumPossibleForce {
 						forceLabel.text = "100% force"
 						grammLabel.text = "385 gram"
+						
+						if isPlaySound {
+							AudioServicesPlaySystemSound(1519)
+							isPlaySound = false
+						}
+						
 					} else {
 						let force = (touch.force / touch.maximumPossibleForce) * 100
 						let grams = force * 385 / 100
 						let roundGrams = Int(grams)
+						
+						isPlaySound = true
 						
 						forceLabel.text = "\(Int(force))% force"
 						grammLabel.text = "\(roundGrams) gram"
